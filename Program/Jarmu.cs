@@ -12,7 +12,7 @@ namespace Program
         private int uzemanyagSzint;
         private bool szervizSzukseges;
 
-        public Jarmu(string rendszam, int kor, int kilometerOra, int uzemanyagSzint, bool szervizSzukseges)
+        public Jarmu(string rendszam, int kor, int kilometerOra, int uzemanyagSzint)
         {
             Rendszam = rendszam;
             Kor = kor;
@@ -89,6 +89,10 @@ namespace Program
                 if (kilometerOra > 200000)
                 {
                     szervizSzukseges = true;
+                }
+                else
+                {
+                    szervizSzukseges = false;
                 }
             }
         }

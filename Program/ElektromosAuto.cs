@@ -8,10 +8,10 @@ namespace Program
     {
         private int akkumulatorSzint;
 
-        public ElektromosAuto(string rendszam, int kor, int kilometerOra, int uzemanyagSzint, bool szervizSzukseges, int akku): base( rendszam,  kor,  kilometerOra,  uzemanyagSzint, szervizSzukseges)
+        public ElektromosAuto(string rendszam, int kor, int kilometerOra, int akku): base( rendszam,  kor,  kilometerOra,  0)
         {
             AkkumulatorSzint = akku;
-            this.UzemanyagSzint = 0;
+           
         }
 
         public int AkkumulatorSzint
