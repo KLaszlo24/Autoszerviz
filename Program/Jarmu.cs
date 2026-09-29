@@ -26,7 +26,7 @@ namespace Program
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    rendszam = "Ismeretlen rendszám";
+                    rendszam = "ISMERETLEN";
                 }
                 else
                 {
@@ -39,11 +39,11 @@ namespace Program
             get => kor;
             set
             {
-                if (kor > 50)
+                if (value > 50)
                 {
                     kor = 50;
                 }
-                else if (kor < 0)
+                else if (value < 0)
                 {
                     kor = 0;
                 }
@@ -56,7 +56,7 @@ namespace Program
         public int KilometerOra { get => kilometerOra;
             set
             {
-                if (kilometerOra < 0)
+                if (value < 0)
                 {
                     kilometerOra = 0;
                 }
@@ -69,11 +69,11 @@ namespace Program
         public int UzemanyagSzint { get => uzemanyagSzint;
             set
             {
-                if (uzemanyagSzint > 100)
+                if (value > 100)
                 {
                     uzemanyagSzint = 100;
                 }
-                else if (uzemanyagSzint < 0)
+                else if (value < 0)
                 {
                     uzemanyagSzint = 0;
                 }
@@ -86,7 +86,7 @@ namespace Program
         public bool SzervizSzukseges { get => szervizSzukseges;
             set
             {
-                if (kilometerOra > 200000)
+                if (this.kilometerOra >= 200000)
                 {
                     szervizSzukseges = true;
                 }
@@ -104,12 +104,13 @@ namespace Program
 
         public virtual void Szervizel(int dij)
         {
-            if (dij < 100000)
+            if (dij > 100000)
             {
-                kilometerOra -= 10000;
-                uzemanyagSzint -= 10;
-                Console.WriteLine("A jármű szervizelése megtörtént");
+                kilometerOra = kilometerOra-10000;
+                
             }
+            uzemanyagSzint = uzemanyagSzint - 10;
+            Console.WriteLine("A jármű szervizelése megtörtént");
         }
     }
 }

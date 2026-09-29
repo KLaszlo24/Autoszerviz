@@ -16,11 +16,11 @@ namespace Program
 
         public int Rakomany { get => rakomany;
             set {
-                if (rakomany > 20)
+                if (value > 20)
                 {
                     rakomany = 20;
                 }
-                else if (rakomany < 0)
+                else if (value < 0)
                 {
                     rakomany = 0;
                 }
@@ -39,7 +39,7 @@ namespace Program
         public override void Szervizel(int dij)
         {
             rakomany = 0;
-            //majd rájövök
+            base.Szervizel(dij);
         }
     }
 

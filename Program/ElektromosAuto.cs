@@ -19,18 +19,7 @@ namespace Program
             get => akkumulatorSzint;
             set
             {
-                if (akkumulatorSzint > 100)
-                {
-                    akkumulatorSzint = 100;
-                }
-                else if (akkumulatorSzint < 0)
-                {
-                    akkumulatorSzint = 0;
-                }
-                else
-                {
-                    akkumulatorSzint = value;
-                }
+                this.akkumulatorSzint = Math.Clamp(value, 0, 100);
             }
         }
 
@@ -41,12 +30,13 @@ namespace Program
 
         public override void Szervizel(int dij)
         {
-            if (dij < 100000)
+            if (dij > 100000)
             {
                 KilometerOra -= 10000;
-                akkumulatorSzint += 20;
-                Console.WriteLine("A jármű szervizelése megtörtént");
+               
             }
+            akkumulatorSzint = akkumulatorSzint + 20;
+            Console.WriteLine("A jármű szervizelése megtörtént");
         }
     }
 }
